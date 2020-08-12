@@ -27,7 +27,7 @@ const RecoverPass = (props) => {
         showConfirmButton: false,
         timer: 3000
       })
-      // history.push('/')
+      history.push('/')
     }
   }
   return (

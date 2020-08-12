@@ -23,7 +23,7 @@ const GetOderPages = () => {
     let Cancelado = res.data.filter(Cancelados => Cancelados.state === "Cancelado");
     let Enviado = res.data.filter(Enviados => Enviados.state === "Enviado");
     let Finalizado = res.data.filter(Finalizados => Finalizados.state === "Finalizado");
-    
+
     if (Pendiente) {
       setPendientes(Pendiente)
     }
@@ -83,6 +83,7 @@ const GetOderPages = () => {
   const HandlerClicFinalizadas = () => {
     setOrderFilter(finalizadas)
   }
+  console.log(orderFilter)
 
   const cards = orderFilter.map(a =>
     <div className="col col-12 col-md-4">
@@ -112,7 +113,7 @@ const GetOderPages = () => {
     </div>
   ).reverse();
 
- return (
+  return (
     <div className="container">
       <div className="btn-group w-100 row mx-0" role="group" aria-label="Grupo de Botones">
         <button type="button" className="btn btn-secondary" onClick={HandlerClicTodas}>Todas</button>
@@ -121,8 +122,8 @@ const GetOderPages = () => {
         <button type="button" className="btn btn-secondary" onClick={HandlerClicCanceladas}>Canceladas</button>
         <button type="button" className="btn btn-secondary" onClick={HandlerClicEnviadas}>Enviadas</button>
         <button type="button" className="btn btn-secondary" onClick={HandlerClicFinalizadas}>Finalizadas</button>
-    </div>
-      <div className="row pt-5 overflow-auto" style={{height: "72vh"}}>
+      </div>
+      <div className="row pt-5 overflow-auto" style={{ height: "72vh" }}>
         {cards}
       </div>
     </div>
